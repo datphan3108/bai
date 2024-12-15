@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %} 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block register %}
+        <h5> Result search for {{searched}} </h5> <br />
+        <div class="row" style="width:100%">
+            {% for nhanvien in keys %}
+            <div class="col-lg-3">
+              <img class="thumbnail" src="{{nhanvien.imageurl}}" style="width: 336px; height: 150px; object-fit: cover;">
+              <div class="box-element product">
+                <h6><strong>{{nhanvien.name}}</strong></h6>
+                <hr>
+                <button data-nhanvien={{nhanvien.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Thuê</button>
+                <a class="btn btn-outline-success" href="#">Lý lịch</a>
+          
+                <h3 style="display: inline-block; float: right;">
+                  <strong><span style="font-size: 0.62em;">{{nhanvien.price}} VND/m<sup style="font-size: 0.6em;">2</sup></span></strong>      
+                </h3>      
+              </div>
+            </div>   
+            {% endfor %}
+          </div> 
+        {% endblock register %}
+    </body>
+</html>
